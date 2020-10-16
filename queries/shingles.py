@@ -19,8 +19,8 @@ q = {
         }
       ]
     }
-
-  }
+  },
+   "size": 30
 }
 
 r = requests.post('http://localhost:9200/questions/_search', json=q).json()

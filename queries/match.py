@@ -3,10 +3,13 @@ import requests
 
 q = {
   "query": {
-    "match": {
-      "question": "europe moon france ocean"
+    "fuzzy": {
+      "question": {
+        "value": "euorth"
+      }
     }
-  }
+  },
+  "size": 30
 }
 
 r = requests.post('http://localhost:9200/questions/_search', json=q).json()

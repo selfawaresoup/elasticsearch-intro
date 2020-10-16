@@ -8,8 +8,8 @@ for row in sql.execute('''
   from questions
   where
     question LIKE "%europe%"
-    OR question LIKE "%moon%"
-    OR question LIKE "%france%"
-    OR question LIKE "%ocean%"
+    AND question LIKE "%moon%"
+    AND question LIKE "%france%"
+    AND question LIKE "%ocean%"
   '''):
-  print(row[2])
+  print(row)

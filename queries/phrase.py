@@ -6,7 +6,7 @@ q = {
     "match_phrase": {
       "question": {
         "query": "sun moon earth",
-        "slop": 10
+        "slop": 8
       }
     }
   },
