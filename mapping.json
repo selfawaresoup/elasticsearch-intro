@@ -1,0 +1,60 @@
+{
+  "analysis": {
+    "filter": {
+      "shingle_filter": {
+        "type": "shingle",
+        "min_shingle_size": 2,
+        "max_shingle_size": 4,
+        "output_unigrams": false
+      }
+    },
+    "analyzer": {
+      "shingle_analyzer": {
+        "type": "custom",
+        "tokenizer": "standard",
+        "token_filter": [
+          "lowercase",
+          "stop",
+          "shingle_filter"
+        ]
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "air_date": {
+        "type": "date"
+      },
+      "answer": {
+        "type": "text"
+      },
+      "category": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "fielddata": true
+      },
+      "question": {
+        "type": "text",
+        "fields": {
+          "shingles": {
+            "type": "string",
+            "analyzer": "shingle_analyzer"
+          }
+        }
+      },
+      "round": {
+        "type": "text"
+      },
+      "show_number": {
+        "type": "integer"
+      },
+      "value": {
+        "type": "integer"
+      }
+    }
+  }
+}
